@@ -1,0 +1,19 @@
+.form-section {
+    padding: 10px;
+    margin: 10px;
+
+    .control-box {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.section {
+    margin: 10px;
+    border: solid 1px red;
+}

@@ -1,0 +1,37 @@
+<div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="section" *ngFor="let control of form.controls | keyvalue">
+
+            <div [formGroup]="getFormGroup(control.key)">
+                <div class="form-section" *ngFor="let section of getSectionForm(control).controls | keyvalue">
+                    <div class="header">
+                        <h4>{{ $any(section.value)?.title }}</h4>
+                        <button *ngIf="$any(section.value)?.showEdit && !$any(section.value)?.edit" (click)="onSectionEdit(section)" type="button">Edit</button>
+                        <button *ngIf="$any(section.value)?.showEdit && $any(section.value)?.edit" (click)="onSectionEdit(section)" type="button">Save</button>
+                    </div>
+
+                    <div class="control-box " [formGroup]="getSectionForm(section)">
+                        <div *ngFor="let field of getSectionForm(section).controls | keyvalue">
+                            <label>{{ field.key }}</label>
+
+                            <ng-container *ngIf="$any(section.value)?.edit">
+                                <ng-container [ngSwitch]="$any(field.value)?.fieldType">
+                                    <input *ngSwitchCase="'textbox'" type="text" formControlName="{{ field.key }}" [attr.required]="field.value.hasError('required') ? true : null" />
+                                    <select *ngSwitchCase="'dropdown'" formControlName="{{ field.key }}" [attr.required]="field.value.hasError('required') ? true : null">
+                                      <option *ngFor="let option of $any(field.value)?.fieldValues" [value]="option">{{ option }}</option>
+                                    </select>
+                                    <br/>
+                                    <span *ngIf="$any(section.value)?.errors?.required">This is required field</span>
+                                </ng-container>
+                            </ng-container>
+
+                            <ng-container *ngIf="!$any(section.value).edit">
+                                - <span>{{field.value.value}}</span>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
