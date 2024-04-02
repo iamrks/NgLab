@@ -1,0 +1,28 @@
+<div class="root-container">
+    <div class="parent-container">
+        <div class="right-container">
+            <button (click)="toggle()">Expand/Collapse</button>
+
+            <div class="title">
+                <span *ngIf="!node.edit">{{node.title}}</span>
+                <input *ngIf="node.edit" type="text" [(ngModel)]="node.title" />
+            </div>
+        </div>
+        <div class="left-container">
+            <button (click)="edit()">{{ node.edit ? 'Save': 'Edit'}}</button>
+            <button (click)="add()">Add</button>
+            <button (click)="delete()">Delete</button>
+        </div>
+    </div>
+    <div *ngIf="node.expand && node.form" class="form-Container">
+        <form [formGroup]="node.form">
+            <div class="control">
+                <label>RenderAs</label>
+                <input type="text" formControlName="renderAs" title="renderAs" />
+            </div>
+        </form>
+    </div>
+    <div *ngIf="node.children && node.children.length > 0" class="child-container">
+        <app-tree *ngFor="let child of node.children" [node]="child"></app-tree>
+    </div>
+</div>

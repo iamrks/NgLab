@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { KeysPipe } from './Pipes/KeysPipe';
 import { BrowserModule } from '@angular/platform-browser';
+import { TreeComponent } from './widgets/tree/tree.component';
+import { PlayComponent } from './components/play/play.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DynamicFormComponent,
-    KeysPipe
+    KeysPipe,
+    TreeComponent,
+    PlayComponent
   ],
   imports: [
     BrowserModule,
