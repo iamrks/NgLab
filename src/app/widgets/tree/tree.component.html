@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="left-container">
-            <button (click)="edit()">{{ node.edit ? 'Save': 'Edit'}}</button>
+            <button (click)="edit()">{{ node.edit ? 'Save': 'Edit' }}</button>
             <button (click)="add()">Add</button>
             <button (click)="delete()">Delete</button>
         </div>
@@ -19,6 +19,26 @@
             <div class="control">
                 <label>RenderAs</label>
                 <input type="text" formControlName="renderAs" title="renderAs" />
+            </div>
+            <div class="control">
+                <label>Node Name</label>
+                <input type="text" formControlName="nodeName" title="nodeName" />
+            </div>
+            <div class="control">
+                <label>Value : Candidate</label>
+                <input type="text" formControlName="value" title="value" />
+            </div>
+            <div class="control">
+                <label>Default Value</label>
+                <input type="text" formControlName="defaultValue" title="defaultValue" />
+            </div>
+            <div class="control">
+                <label>Data Type</label>
+                <input type="text" formControlName="dataType" title="dataType" />
+            </div>
+            <div class="control">
+                <label>Is Required</label>
+                <input type="text" formControlName="isRequired" title="isRequired" />
             </div>
         </form>
     </div>

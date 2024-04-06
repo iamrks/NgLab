@@ -31,13 +31,16 @@
     }
 
     .form-Container {
-        height: 100px;
+        height: 180px;
         background-color: #d6a9d4;
         margin-top: 1em;
         padding: 0.5em;
 
         .control {
             display: flex;
+            width: 20em;
+            justify-content: space-between;
+            margin: .5em;
 
             input {
                 margin-left: 1em;
