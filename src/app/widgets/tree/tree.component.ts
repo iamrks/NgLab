@@ -11,6 +11,12 @@ export class TreeComponent implements OnInit {
 
   @Input() node!: TreeNode;
 
+  renderAs = ['Node', 'Node 1', 'Node 2'];
+  valueKeys = ['Candidate', 'Employee'];
+  valueList = ['Main Phone', 'Secondary Phone'];
+  dataTypes = ['Number', 'String'];
+  requiredOptions = ['Yes', 'No'];
+
   constructor(private fb: FormBuilder) {
   }
 
@@ -60,6 +66,7 @@ export class TreeComponent implements OnInit {
     return this.fb.group({
       renderAs: new FormControl('', Validators.required),
       nodeName: new FormControl('', Validators.required),
+      valueKey: new FormControl('', Validators.required),
       value: new FormControl('', Validators.required),
       defaultValue: new FormControl('', Validators.required),
       dataType: new FormControl('', Validators.required),

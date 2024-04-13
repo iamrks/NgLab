@@ -17,28 +17,39 @@
     <div *ngIf="node.expand && node.form" class="form-Container">
         <form [formGroup]="node.form">
             <div class="control">
-                <label>RenderAs</label>
-                <input type="text" formControlName="renderAs" title="renderAs" />
+                <label for="renderAs">RenderAs</label>
+                <select formControlName="renderAs">
+                    <option *ngFor="let item of renderAs" [value]="item">{{item}}</option>
+                </select>
             </div>
             <div class="control">
-                <label>Node Name</label>
+                <label for="nodeName">Node Name</label>
                 <input type="text" formControlName="nodeName" title="nodeName" />
             </div>
             <div class="control">
-                <label>Value : Candidate</label>
-                <input type="text" formControlName="value" title="value" />
+                <label for="value">Value:</label>
+                <select formControlName="valueKey" class="transparent">
+                    <option *ngFor="let item of valueKeys" [value]="item">{{item}}</option>
+                </select>
+                <select formControlName="value">
+                    <option *ngFor="let item of valueList" [value]="item">{{item}}</option>
+                </select>
             </div>
             <div class="control">
-                <label>Default Value</label>
+                <label for="defaultValue">Default Value</label>
                 <input type="text" formControlName="defaultValue" title="defaultValue" />
             </div>
             <div class="control">
-                <label>Data Type</label>
-                <input type="text" formControlName="dataType" title="dataType" />
+                <label for="dataType">Data Type</label>
+                <select formControlName="dataType">
+                    <option *ngFor="let item of dataTypes" [value]="item">{{item}}</option>
+                </select>
             </div>
             <div class="control">
-                <label>Is Required</label>
-                <input type="text" formControlName="isRequired" title="isRequired" />
+                <label for="isRequired">Is Required</label>
+                <select formControlName="isRequired">
+                    <option *ngFor="let item of requiredOptions" [value]="item">{{item}}</option>
+                </select>
             </div>
         </form>
     </div>

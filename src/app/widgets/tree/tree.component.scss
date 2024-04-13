@@ -45,6 +45,15 @@
             input {
                 margin-left: 1em;
             }
+
+            select {
+                width: 12.8em;
+            }
+
+            .transparent {
+                background: transparent;
+                border: 0;
+            }
         }
     }
 }
